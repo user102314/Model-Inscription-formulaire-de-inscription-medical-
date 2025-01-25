@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+
+
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css">
+    <script src="controle.js"></script>
+    <title>Formulaire d'inscription</title>
+
+  </head>
+  <body>
+    <header class="elrass">
+        <div class="block">
+            <img src="photo1.jpg" alt="Photo 1">
+        </div>
+        <div class="block middle-block">
+            <p class="text-tete">FORMULAIRE DE SOUSCRIPTION</p>
+
+        </div>
+        <div class="block">
+            <img src="photo2.jpg" alt="Photo 2">
+        </div>
+    </header>
+    <div class="container">
+        <form id="subscriptionForm">
+            <div class="mb-3" style="margin-bottom: 150px;">
+                <div class="row">
+                    <div class="classA" style="float: left;">
+                        <label for="Date" class="form-label">Date*</label>
+                        <input type="date" class="form-control" id="Date" name="Date" style="width: 25%;">
+                        <div id="DateError" class="error-message"></div>
+                    </div>
+                    <div class="classB" style="float: right;">
+                        <label for="Ref" class="form-label">Ref*</label>
+                        <input type="text" class="form-control" id="Ref" name="Ref" style="width: 25%;">
+                        <div id="RefError" class="error-message"></div>
+                    </div>
+            </div>
+            <div class="mb-3" style="margin-top: 20px;">
+                <div class="row">
+                    <div class="classA">
+                        <label for="civility" class="form-label">Civilité*</label>
+                        <select class="form-control form1" id="civility" name="civility">
+                            <option value="">Choisissez...</option>
+                            <option value="Monsieur">Monsieur</option>
+                            <option value="Madame">Madame</option>
+                            <option value="Non genré">Non genré</option>
+                        </select>
+                        <div id="civilityError" class="error-message"></div>
+                    </div>
+                    <div class="classB">
+                        <label for="nom" class="form-label">Nom*</label>
+                        <input type="text" class="form-control" id="nom" name="nom" onblur="verif()">
+                        <div id="nomError" class="error-message"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="classA">
+                        <label for="prenom" class="form-label">Prénom*</label>
+                        <input type="text" class="form-control" id="prenom" name="Prénom">
+                        <div id="prenomError" class="error-message"></div>
+                    </div>
+                    <div class="classB">
+                        <label for="nomNaissance" class="form-label">Nom de naissance*</label>
+                        <input type="text" class="form-control twila" id="nomNaissance" name="nomNaissance">
+                        <div id="nomNaissanceError" class="error-message"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="classA">
+                        <label for="fixe" class="form-label">Numéro de téléphone fixe</label>
+                        <input type="tel" class="form-control twila" id="fixe" name="fixe">
+                        <div id="fixeError" class="error-message"></div>
+                    </div>
+                    <div class="classB">
+                        <label for="mobile" class="form-label">Numéro de téléphone mobile*</label>
+                        <input type="tel" class="form-control twila" id="mobile" name="mobile">
+                        <div id="mobileError" class="error-message"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row addr">
+                    <div class="classA" style="width: 100%; margin-bottom: 2%;">
+                        <label for="adresse" class="form-label addrDimension" >Adresse*</label>
+                        <input type="text" class="form-control adrs" id="adresse" name="adresse">
+                        <div id="adresseError" class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 6%;">
+                    <div class="classA">
+                        <label for="codePostal" class="form-label">Code postal*</label>
+                        <input type="text" class="form-control" id="codePostal" name="codePostal">
+                        <div id="codePostalError" class="error-message"></div>
+                    </div>
+                    <div class="classB">
+                        <label for="ville" class="form-label">Ville*</label>
+                        <input type="text" class="form-control" id="ville" name="ville">
+                        <div id="villeError" class="error-message"></div>
+                    </div>
+                </div>
+    
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="classA">
+                        <label for="dateNaissance" class="form-label">Date de naissance*</label>
+                        <input type="date" class="form-control twila" id="dateNaissance" name="dateNaissance">
+                        <div id="dateNaissanceError" class="error-message"></div>
+                    </div>
+                    
+                    <div class="classB">
+                        <label for="email" class="form-label">Email*</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                        <div id="emailError" class="error-message"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="lieuNaissance" class="form-label">Lieu de naissance*</label>
+                <input type="text" class="form-control " id="lieuNaissance" style="width: 98%;" name="lieuNaissance">
+                <div id="lieuNaissanceError" class="error-message"></div>
+            </div>
+
+
+
+
+            <div class="card mb-4">
+                <div class="card-header" style="color : rgb(28, 28, 134) ;">
+                    Médecin traitant
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="medecinTraitant" class="form-label">Nom du Médecin traitant</label>
+                            <input type="text" class="form-control twila" id="medecinTraitant" name="medecinTraitant">
+                            <div id="medecinTraitantError" class="error-message"></div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="villemedecinTraitant" class="form-label">Ville du Médecin traitant</label>
+                            <input type="text" class="form-control twila" id="villemedecinTraitant" name="villemedecinTraitant">
+                            <div id="villeMedecinError" class="error-message"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="checkbox" id="pasdemedicin" class="form-check-input" name="pasdemedicin">
+                        <label for="pasdemedicin" class="form-check-label">Pas de médecin traitant</label>
+                        <p style="font-size: 0.8em;font-weight: bold;color : rgb(28, 28, 134) ;">si vous n'avez pas de médecin traitant cocher cette case</p>
+                    </div>
+                    
+                </div>
+            </div> 
+            <div class="mb-3">
+                <label>Acceptez-vous que le médecin traitant consulte votre dossier médical ?*</label><br>
+                <input type="radio" id="dossierMedicalOui" name="medicinmedical" value="oui">
+                <label for="dossierMedicalOui">Oui</label><br>
+                <input type="radio" id="dossierMedicalNon" name="medicinmedical" value="non">
+                <label for="dossierMedicalNon">Non</label>
+                <div id="dossierMedicalError" class="error-message"></div>
+            </div> <br>
+            
+
+
+
+
+
+
+
+
+            <div id="tiersContainer">
+                <div id="blockContainer">
+                    <div class="card mb-4" id="block1">
+                        <div class="card-header">
+                            <h5 class="card-header" style="color : rgb(28, 28, 134) ;">Tiers de confiance 1</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 mb-1">
+                                    <input type="checkbox" class="form-check-input" name="famille[0]" id="famille1">
+                                    <label for="famille1" class="form-label">Famille</label>
+                                </div>
+                                <div class="col-md-3 mb-1">
+                                    <input type="checkbox" class="form-check-input" name="amis[0]" id="amis1">
+                                    <label for="amis1" class="form-label">Amis</label>
+                                </div>
+                                <div class="col-md-3 mb-1">
+                                    <input type="checkbox" class="form-check-input" name="auxiliaire[0]" id="auxiliaire1">
+                                    <label for="auxiliaire1" class="form-label">Auxiliaire de vie</label>
+                                </div>
+                                <div class="col-md-3 mb-1">
+                                    <input type="checkbox" class="form-check-input" name="voisins[0]" id="voisins1">
+                                    <label for="voisins1" class="form-label">Voisins</label>
+                                </div>
+                                <div id="CHEAK" class="error-message"></div>
+
+                            </div>
+    
+                            <div class="row">
+                                <div class="classA">
+                                    <label for="ordrePreference1" class="form-label">ordre de préférence*</label>
+                                    <input type="tel" class="form-control" id="ordrePreference1" name="ordrePreference1">
+                                    <div id="ordrePreference1Error" class="error-message"></div>
+                                </div>
+                                <div class="classB">
+                                    <label for="nom1" class="form-label">Nom*</label>
+                                    <input type="text" class="form-control" id="nom1" name="nom1">
+                                    <div id="nom1Error" class="error-message"></div>
+                                </div>
+                                
+                            </div>
+    
+                            <div class="row">
+                                <div class="classA">
+                                    <label for="prenom1" class="form-label">Prénom*</label>
+                                    <input type="text" class="form-control" id="prenom1" name="prenom1">
+                                    <div id="prenom1Error" class="error-message"></div>
+                                </div>
+                                
+                                <div class="classB">
+                                    <label for="email1" class="form-label">Email*</label>
+                                    <input type="email" class="form-control" id="email1" name="email1">
+                                    <div id="email1Error" class="error-message"></div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="classA">
+                                    <label for="telephone1" class="form-label">Téléphone*</label>
+                                    <input type="tel" class="form-control" id="telephone1" name="telephone1">
+                                    <div id="telephone1Error" class="error-message"></div>
+                                </div>
+                                <div class="classB">
+                                    <label for="proximiteDomicile1" class="form-label">Proximité du domicile*</label>
+                                    <select id="proximiteDomicile1" name="proximiteDomicile1" class="form-control form1"> 
+                                        <option value="">. . . </option>
+                                        <option value="-5">moins de 5 minutes</option>
+                                        <option value="5-15">entre 5 et 15 minutes</option>
+                                        <option value="15-30">entre  15 et 30 minutes</option>
+                                        <option value="15-60">entre 15 et 60 minutes</option>
+                                        <option value="60+">plus a 60 minutes</option>
+                                    </select>
+                                    <div id="proximiteDomicile1Error" class="error-message"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="classA">
+                                    <span for="cheak1" class="form-label">Accepter-vous que cette personne co-administre votre dossier ?</span><br>
+                                    <label for="cheak1">Oui</label>
+                                    <input type="radio" class="form-check-input" id="cheak1" name="acc1" value="oui">
+                                    <label for="cheak2">Non</label>
+                                    <input type="radio" class="form-check-input" id="cheak2" name="acc1" value="non">
+                                    <div id="cheak1Error" class="error-message"></div>
+                                </div>
+                                <div class="classB">
+                                    <span for="cheak3" class="form-label">Accepter-vous que cette personne soit prévenu en cas d'alerte médicale ?</span><br>
+                                    <label for="cheak3">Oui</label>
+                                    <input type="radio" class="form-check-input" id="cheak3" name="acc2" value="oui">
+                                    <label for="cheak4">Non</label>
+                                    <input type="radio" class="form-check-input" id="cheak4" name="acc2" value="non">
+                                    <div id="cheak2Error" class="error-message"></div>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <svg width="30" height="30" fill="none" stroke="currentColor" style="margin-left: 10px;" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 19c3.771 0 5.657 0 6.828-1.172C22 16.657 22 14.771 22 11c0-3.771 0-5.657-1.172-6.828C19.657 3 17.771 3 14 3h-4C6.229 3 4.343 3 3.172 4.172 2 5.343 2 7.229 2 11c0 3.771 0 5.657 1.172 6.828.653.654 1.528.943 2.828 1.07"></path>
+                <path d="M14 19c-1.236 0-2.598.5-3.841 1.145-1.998 1.037-2.997 1.556-3.489 1.225-.492-.33-.399-1.355-.212-3.404L6.5 17.5"></path>
+                <path d="M15 11H9"></path>
+                <path d="M12 8v6"></path>
+              </svg>
+            <button type="button"  id="addTiersButton" style="border: none;background:white;"><span  style="font-size: 1.5em;margin-top: -5px;color : rgb(28, 28, 134) ;font-weight: bold;">Ajouter un tiers de confiance</span> </button><br>
+            <br><br><br>
+            <div style="margin-bottom: 50px;">
+                <input type="checkbox" name="acceptez1" id="acceptez1"  style="width: 20px;height: 20px;margin-left: 20px;"> <span style="font-size: 1.2em;">J'accepte les conditions générales de services</span> <br>
+                <input type="checkbox" name="acceptez2" id="acceptez2"  style="width: 20px;height: 20px;margin-left: 20px;"> <span style="font-size: 1.2em;">J'accepte de recevoir des emails de la  société SunWaves MedTech</span>
+                <p id="fini" style="color: red;"></p>
+            </div>
+            <center><button type="submit" class="btn btn-primary" id="submitBtn">Soumettre</button></center>
+        </form>
+    </div>
+
+    <script src="controle.js"></script>
+    <script src="Ajax.js"></script>
+</body>
+</html>
